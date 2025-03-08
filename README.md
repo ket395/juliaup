@@ -1,12 +1,19 @@
+# THIS IS A EMPTY FORK, NOTHING IS BEING DONE HERE
 # Juliaup - Julia version manager
 
 This repository contains a cross-platform installer for the Julia programming language.
 
-The installer also bundles a full Julia version manager called `juliaup`. One can use `juliaup` to install specific Julia versions, it alerts users when new Julia versions are released and provides a convenient Julia release channel abstraction.
+The installer also bundles a full Julia version manager called `juliaup`. One can use `juliaup` to install specific Julia versions, it sometimes alerts users when new Julia versions are released and provides a convenient Julia release channel abstraction.
 
 ## Status
 
-This installer is considered production ready.
+> This installer is considered production ready.
+ 
+Reality simplified and condensed - Note the word considered above, I mention this to point out the subtle honesty of the author unlike numerous popular FOSS version multiplexers like rustup. Is always debatable unless you use a customised version of juliaup that worksaround all the deficiencies and bugs. and that is simple and just works. Be Awsm.
+
+<details>
+
+<summary>Click me</summary>
 
 ## Installation
 
@@ -164,10 +171,25 @@ Juliaup will by default use the Julia depot at `~/.julia` to store Julia version
 the `JULIAUP_DEPOT_PATH` environment variable. Caution: Previous versions of Juliaup used the content of the environment variable
 `JULIA_DEPOT_PATH` to locate Juliaup files, the current version changed this behavior and no longer depends on `JULIA_DEPOT_PATH`.
 
+</details>
+
+
+
 ## Juliaup server
 
-Juliaup by default downloads julia binary tarballs from the official server "https://julialang-s3.julialang.org".
-If requested, the environment variable `JULIAUP_SERVER` can be used to tell Juliaup to use a third-party mirror server.
+> Juliaup by default downloads julia binary tarballs from the official server "https://julialang-s3.julialang.org".
+If requested, the environment variable `JULIAUP_SERVER` can be used to tell Juliaup to use a third-party mirror server. 
+
+There maybe no security guarantees with using the official website for the downloads (low nonzero, thus significant probability) and when using
+the server specified in the env var by default. It's also unclear how Powershell or non bash shell users will set this env var an example is germane to
+confirm the expected usage in command line or GUi that utilises the shell. For example - see the Go module server security exploit that utilised Github
+and a trivial amount of psychology or social engineering to succesfully infiltrate thousands of organizations via a software backdoor  due to a super obvious and glaring engineering error by the
+Golang team. It was a supply chain attack on the BoltDB database module. Confirm by checking the alarming lack of relevant discussions on https://github.com/golang/go see Go Module mirror system, and the report by Kirill Boychenko, a Threat Intelligence Analyst at Socket SEcurity. The only obscure mention on go repo is this issue titled 
+
+```
+
+```
+and thus cryptic for most common searches issue by the bot https://github.com/golang/go/issues/71573
 
 ## Development guides
 
@@ -179,6 +201,7 @@ To use unstable preview versions of juliaup (e.g. to get a patch before it makes
 ```
 curl -fsSL https://install.julialang.org/releasepreview | sh
 ```
+[WARNING] Check the file before piping it into sh or your shell. It's a sh file after all so may not work for non bash shells unless clearly specified.
 
 ## More information
 
